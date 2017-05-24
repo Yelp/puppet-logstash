@@ -153,11 +153,12 @@ define logstash::package::install(
   if ($logstash::software_provider == 'package') {
 
     package { $name:
-      ensure   => $package_ensure,
-      name     => $package_name,
-      source   => $pkg_source,
-      provider => $pkg_provider,
-      tag      => 'logstash',
+      ensure      => $package_ensure,
+      name        => $package_name,
+      source      => $pkg_source,
+      provider    => $pkg_provider,
+      tag         => 'logstash',
+      configfiles => 'replace',
     }
 
   } else {
